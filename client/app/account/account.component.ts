@@ -18,8 +18,8 @@ export class AccountComponent implements OnInit {
               private userService: UserService) { }
 
   ngOnInit() {
-    this.getUser();
-  }
+  this.getUser();
+}
 
   getUser() {
     this.userService.getUser(this.auth.currentUser).subscribe(

@@ -4,6 +4,8 @@ import CatCtrl from './controllers/cat';
 import UserCtrl from './controllers/user';
 import Cat from './models/cat';
 import User from './models/user';
+import WordCtrl from './controllers/word';
+import Word from './models/words';
 
 export default function setRoutes(app) {
 
@@ -19,7 +21,8 @@ export default function setRoutes(app) {
   router.route('/cat/:id').get(catCtrl.get);
   router.route('/cat/:id').put(catCtrl.update);
   router.route('/cat/:id').delete(catCtrl.delete);
-
+  // Words
+  router.route('/words').get(WordCtrl.getWord);
   // Users
   router.route('/login').post(userCtrl.login);
   router.route('/users').get(userCtrl.getAll);

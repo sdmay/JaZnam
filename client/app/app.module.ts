@@ -17,6 +17,7 @@ import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PlayComponent } from './play/play.component';
+import {PlayService} from './services/play.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { PlayComponent } from './play/play.component';
     AuthGuardLogin,
     AuthGuardAdmin,
     CatService,
-    UserService
+    UserService,
+    PlayService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

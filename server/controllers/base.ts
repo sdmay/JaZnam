@@ -10,6 +10,8 @@ abstract class BaseCtrl {
     });
   };
 
+
+
   // Count all
   count = (req, res) => {
     this.model.count((err, count) => {
