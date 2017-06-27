@@ -47,13 +47,12 @@ export class AuthService {
 
   setCurrentUser(decodedUser) {
     this.loggedIn = true;
+    this.isAdmin = false;
     this.currentUser._id = decodedUser._id;
     this.currentUser.username = decodedUser.username;
     this.currentUser.wins = decodedUser.wins;
     this.currentUser.losses = decodedUser.losses;
     this.currentUser.email = decodedUser.email;
-    decodedUser.role === 'admin' ? this.isAdmin = true : this.isAdmin = false;
-    delete decodedUser.role;
   }
 
 }
