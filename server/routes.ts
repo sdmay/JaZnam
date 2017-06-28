@@ -13,6 +13,7 @@ export default function setRoutes(app) {
 
   const catCtrl = new CatCtrl();
   const userCtrl = new UserCtrl();
+  const wordCtrl = new WordCtrl();
 
   // Cats
   router.route('/cats').get(catCtrl.getAll);
@@ -22,7 +23,7 @@ export default function setRoutes(app) {
   router.route('/cat/:id').put(catCtrl.update);
   router.route('/cat/:id').delete(catCtrl.delete);
   // Words
-
+router.route('/words').get(wordCtrl.getRandom);
   // Users
   router.route('/login').post(userCtrl.login);
   router.route('/users').get(userCtrl.getAll);

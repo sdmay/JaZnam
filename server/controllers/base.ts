@@ -34,6 +34,20 @@ abstract class BaseCtrl {
       res.status(200).json(item);
     });
   };
+  // Get Random Word
+  getRandom = (req, res) => {
+    console.log('random');
+    const dbSearch = 2;
+    const n = Math.floor(Math.random() * dbSearch);
+    console.log(n);
+    console.log('pool');
+    this.model.findOne({ _id: req.n }, (err, obj) => {
+      console.log(req.n);
+      if (err) { return console.error(err); }
+     console.log(res.json(obj));
+      res.json(obj);
+    });
+  };
 
   // Get by id
   get = (req, res) => {

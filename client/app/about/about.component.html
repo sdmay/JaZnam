@@ -1,5 +1,6 @@
 <div class="card">
   <button routerLink="register" class="btn btn-primary btn-lg" name="register" *ngIf="!auth.loggedIn">Register</button>
-  <button routerLink="login" class="btn btn-lg" name="register" *ngIf="!auth.loggedIn">Login</button>
+  <button routerLink="login" class="btn btn-warning btn-lg" name="register" *ngIf="!auth.loggedIn">Login</button>
+  Come on {{auth.currentUser.username}}
   <button routerLink="play" class="btn btn-success btn-lg" name="register" *ngIf="auth.loggedIn">Play</button>
 </div>
