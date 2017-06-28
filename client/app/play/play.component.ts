@@ -33,7 +33,7 @@ export class PlayComponent implements OnInit {
   }
   playGame() {
     this.playService.getWord().subscribe(
-      data =>  this.word = data,
+      data =>  {console.log(this.word); this.word = data},
       error => console.log(error),
       () => this.isLoading = false
     )

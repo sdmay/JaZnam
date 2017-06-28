@@ -34,6 +34,7 @@ abstract class BaseCtrl {
       res.status(200).json(item);
     });
   };
+
   // Get Random Word
   getRandom = (req, res) => {
     console.log('random');
@@ -41,11 +42,11 @@ abstract class BaseCtrl {
     const n = Math.floor(Math.random() * dbSearch);
     console.log(n);
     console.log('pool');
-    this.model.findOne({ _id: req.n }, (err, obj) => {
-      console.log(req.n);
+    this.model.find({}, (err, docs) => {
+      console.log(docs);
       if (err) { return console.error(err); }
-     console.log(res.json(obj));
-      res.json(obj);
+     console.log(res.json(docs));
+      res.json(docs);
     });
   };
 
