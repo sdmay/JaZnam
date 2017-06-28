@@ -4,6 +4,9 @@
   "license": "MIT",
   "author": "Scott May",
   "description": "Serbian Game Show Angular Full Stack project built using Angular 4, Express, Mongoose and Node.",
+  "engines": {
+    "node": "7.10.0"
+  },
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
