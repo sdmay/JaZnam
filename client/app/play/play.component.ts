@@ -3,6 +3,7 @@ import { ToastComponent } from '../shared/toast/toast.component';
 import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
 import { PlayService } from '../services/play.service'
+import {stringDistance} from "codelyzer/util/utils";
 
 @Component({
   selector: 'app-play',
@@ -11,8 +12,11 @@ import { PlayService } from '../services/play.service'
 })
 export class PlayComponent implements OnInit {
   user = {};
-  string;
-  words = [];
+  y;
+  x;
+  words = {
+    word: String
+  };
   isLoading = true;
 
   constructor(private auth: AuthService,
@@ -34,16 +38,25 @@ export class PlayComponent implements OnInit {
   playGame() {
     this.playService.getWords().subscribe(
       data => {
-        this.words = data;
+        this.x = data;
+        this.y = this.x.word;
+        console.log(this.y);
+        this.words = {
+          word: this.x.word.split('').sort(function(){return 0.5 - Math.random()}).join('')
+        }
       },
       error => console.log(error),
       () => this.isLoading = false
     )
   }
-scrambleWord(word) {
-
-}
-  checkWord() {
+  checkWord(check: HTMLInputElement) {
+    if (check.value !== this.y) {
+      alert('guess again');
+    } else {
+      alert('oh yeah!');
+      this.playGame();
+    }
+    check.value = '';
   }
   lostGame() {
   }

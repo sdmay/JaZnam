@@ -2,4 +2,9 @@
   {{words.word}}
 </div>
 
+<div>
+  <input class="checkword" #check placeholder="Enter Your Guess!" (keyup.enter)="checkWord(check)">
+  <button class="guess" (click)="checkWord(check)">Guess!</button>
+</div>
+
 
