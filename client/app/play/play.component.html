@@ -1,10 +1,5 @@
-
-<div>
-  Welcome! {{auth.currentUser.username}}
-  Wins: {{auth.currentUser.wins}}
-  Losses: {{auth.currentUser.losses}}
-
+<div *ngIf="words">
+  {{words.word}}
 </div>
-<div *ngFor="let x of word">
-  {{x.word}}
-</div>
+
+

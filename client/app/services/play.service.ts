@@ -9,7 +9,7 @@ export class PlayService {
 
   constructor(private http: Http) { }
 
-  getWord(): Observable<any> {
+  getWords(): Observable<any> {
     return this.http.get('/api/words').map(res => res.json());
   }
 }

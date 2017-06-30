@@ -11,7 +11,8 @@ import { PlayService } from '../services/play.service'
 })
 export class PlayComponent implements OnInit {
   user = {};
-  word = [];
+  string;
+  words = [];
   isLoading = true;
 
   constructor(private auth: AuthService,
@@ -20,7 +21,6 @@ export class PlayComponent implements OnInit {
               private userService: UserService)  { }
 
   ngOnInit() {
-    this.getUser();
     this.playGame();
   }
 
@@ -32,12 +32,17 @@ export class PlayComponent implements OnInit {
     );
   }
   playGame() {
-    this.playService.getWord().subscribe(
-      data =>  {console.log(this.word); this.word = data},
+    this.playService.getWords().subscribe(
+      data => {
+        this.words = data;
+      },
       error => console.log(error),
       () => this.isLoading = false
     )
   }
+scrambleWord(word) {
+
+}
   checkWord() {
   }
   lostGame() {

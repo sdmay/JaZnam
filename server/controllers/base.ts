@@ -42,11 +42,11 @@ abstract class BaseCtrl {
     const n = Math.floor(Math.random() * dbSearch);
     console.log(n);
     console.log('pool');
-    this.model.find({}, (err, docs) => {
-      console.log(docs);
+    this.model.findOne({ word: 'pool' }, (err, obj) => {
+
       if (err) { return console.error(err); }
-     console.log(res.json(docs));
-      res.json(docs);
+
+      return res.json(obj);
     });
   };
 

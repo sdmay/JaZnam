@@ -13,8 +13,8 @@ export class CatService {
   constructor(private http: Http) { }
 
   getCats(): Observable<any> {
-    return this.http.get('/api/cats').map(res => res.json());
-  }
+  return this.http.get('/api/cats').map(res => res.json());
+}
 
   countCats(): Observable<any> {
     return this.http.get('/api/cats/count').map(res => res.json());
