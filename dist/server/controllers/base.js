@@ -35,18 +35,15 @@ var BaseCtrl = (function () {
                 res.status(200).json(item);
             });
         };
+        // this.model.find().limit(-1).skip(_rand() * this.model.count()
         // Get Random Word
         this.getRandom = function (req, res) {
-            console.log('random');
-            var dbSearch = 2;
-            var n = Math.floor(Math.random() * dbSearch);
-            console.log(n);
-            console.log('pool');
-            _this.model.findOne({ word: 'pool' }, function (err, obj) {
+            _this.model.aggregate({ $sample: { size: 1 } }, function (err, obj) {
+                console.log(obj);
                 if (err) {
                     return console.error(err);
                 }
-                return res.json(obj);
+                res.json(obj);
             });
         };
         // Get by id

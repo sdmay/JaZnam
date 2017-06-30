@@ -10,6 +10,6 @@ export class PlayService {
   constructor(private http: Http) { }
 
   getWords(): Observable<any> {
-    return this.http.get('/api/words').map(res => res.json());
+    return this.http.get('/api/words').map(res => res.json()['0']);
   }
 }

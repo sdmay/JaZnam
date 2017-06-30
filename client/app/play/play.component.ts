@@ -3,7 +3,7 @@ import { ToastComponent } from '../shared/toast/toast.component';
 import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
 import { PlayService } from '../services/play.service'
-import {stringDistance} from "codelyzer/util/utils";
+import {stringDistance} from 'codelyzer/util/utils';
 
 @Component({
   selector: 'app-play',
@@ -14,6 +14,8 @@ export class PlayComponent implements OnInit {
   user = {};
   y;
   x;
+  z;
+  a;
   words = {
     word: String
   };
@@ -39,21 +41,30 @@ export class PlayComponent implements OnInit {
     this.playService.getWords().subscribe(
       data => {
         this.x = data;
-        this.y = this.x.word;
-        console.log(this.y);
+        this.a = this.x.word.toLowerCase();
+        console.log(this.x.word);
         this.words = {
-          word: this.x.word.split('').sort(function(){return 0.5 - Math.random()}).join('')
-        }
+          word: this.x.word.toLowerCase().split('').sort(function () {return 0.5 - Math.random()
+          }).join('')
+        };
+        console.log(this.words.word)
       },
       error => console.log(error),
       () => this.isLoading = false
     )
   }
   checkWord(check: HTMLInputElement) {
-    if (check.value !== this.y) {
+    this.z = check.value.toLowerCase();
+    console.log(this.z);
+    console.log(this.a);
+    if (this.z === '') {
+      return;
+    }
+    if (this.z !== this.a) {
       alert('guess again');
     } else {
       alert('oh yeah!');
+      this.wonGame();
       this.playGame();
     }
     check.value = '';
