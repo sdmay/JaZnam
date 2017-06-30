@@ -42,12 +42,10 @@ export class PlayComponent implements OnInit {
       data => {
         this.x = data;
         this.a = this.x.word.toLowerCase();
-        console.log(this.x.word);
         this.words = {
           word: this.x.word.toLowerCase().split('').sort(function () {return 0.5 - Math.random()
-          }).join('')
+          }).join('-')
         };
-        console.log(this.words.word)
       },
       error => console.log(error),
       () => this.isLoading = false
@@ -55,8 +53,6 @@ export class PlayComponent implements OnInit {
   }
   checkWord(check: HTMLInputElement) {
     this.z = check.value.toLowerCase();
-    console.log(this.z);
-    console.log(this.a);
     if (this.z === '') {
       return;
     }
