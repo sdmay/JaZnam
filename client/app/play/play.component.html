@@ -1,3 +1,4 @@
+{{auth.currentUser.username}} {{auth.currentUser.wins}} {{auth.currentUser.losses}}
 <div *ngIf="words">
  <h2 class="word">{{words.word}}</h2>
 </div>
@@ -6,5 +7,7 @@
   <input class="checkword" #check placeholder="Enter Your Guess!" (keyup.enter)="checkWord(check)">
   <button class="guess" (click)="checkWord(check)">Guess!</button>
 </div>
+
+{{ticks}}
 
 

@@ -3,7 +3,7 @@ import { ToastComponent } from '../shared/toast/toast.component';
 import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
 import { PlayService } from '../services/play.service'
-import {stringDistance} from 'codelyzer/util/utils';
+import {Observable} from 'rxjs/Rx';
 
 @Component({
   selector: 'app-play',
@@ -16,6 +16,10 @@ export class PlayComponent implements OnInit {
   x;
   z;
   a;
+  sub;
+dispose;
+  ticks = 0;
+  countdown;
   words = {
     word: String
   };
@@ -28,6 +32,7 @@ export class PlayComponent implements OnInit {
 
   ngOnInit() {
     this.playGame();
+    this.getUser();
   }
 
   getUser() {
@@ -37,7 +42,12 @@ export class PlayComponent implements OnInit {
       () => this.isLoading = false
     );
   }
+  timer() {
+    let timer: any = Observable.timer(10, 1000);
+    this.sub = timer.subscribe(t => this.tickerFunc(t));
+  }
   playGame() {
+    this.timer();
     this.playService.getWords().subscribe(
       data => {
         this.x = data;
@@ -60,14 +70,37 @@ export class PlayComponent implements OnInit {
       alert('guess again');
     } else {
       alert('oh yeah!');
-      this.wonGame();
-      this.playGame();
-    }
+      this.wonGame(this.auth.currentUser._id);
+
+          }
     check.value = '';
   }
-  lostGame() {
+  lostGame(user) {
+    console.log('you lose');
+    console.log(this.auth.currentUser._id);
+    this.userService.updateLoss(this.auth.currentUser._id).subscribe(
+        res => this.toast.setMessage('account settings saved!', 'success'),
+        error => console.log(error)
+      );
+    this.playGame();
   }
-  wonGame() {
+  wonGame(user) {
+    if (this.ticks > 0) {
+      console.log('You Win! ');
+      console.log(this.auth.currentUser._id);
+      this.userService.updateWins(this.auth.currentUser._id).subscribe(
+        res => this.toast.setMessage('You win!', 'success'),
+        error => console.log(error)
+      );
+      this.sub.unsubscribe();
+      this.playGame();
+    }
   }
-
+  tickerFunc(tick) {
+    this.ticks = 60 - tick;
+    if (this.ticks === 0) {
+      this.sub.unsubscribe();
+     this.lostGame(this.auth.currentUser._id);
+    }
+  }
 }

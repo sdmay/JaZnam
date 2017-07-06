@@ -61,6 +61,25 @@ var BaseCtrl = (function () {
                 if (err) {
                     return console.error(err);
                 }
+                console.log(res);
+                res.sendStatus(200);
+            });
+        };
+        this.updateLoss = function (req, res) {
+            console.log(req.params.id);
+            _this.model.findOneAndUpdate({ _id: req.params.id }, { $inc: { losses: 1 } }, function (err) {
+                if (err) {
+                    return console.error(err);
+                }
+                res.sendStatus(200);
+            });
+        };
+        this.updateWins = function (req, res) {
+            console.log(req.params._id);
+            _this.model.findOneAndUpdate({ _id: req.params.id }, { $inc: { wins: 1 } }, function (err) {
+                if (err) {
+                    return console.error(err);
+                }
                 res.sendStatus(200);
             });
         };
