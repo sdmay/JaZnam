@@ -70,7 +70,7 @@ abstract class BaseCtrl {
     });
   };
   updateWins = (req, res) => {
-    console.log(req.params._id)
+    console.log(req.params._id);
     this.model.findOneAndUpdate({ _id: req.params.id }, { $inc: { wins: 1}}, (err) => {
       if (err) { return console.error(err); }
       res.sendStatus(200);

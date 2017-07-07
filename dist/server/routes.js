@@ -24,8 +24,8 @@ function setRoutes(app) {
     router.route('/users/count').get(userCtrl.count);
     router.route('/user').post(userCtrl.insert);
     router.route('/user/:id').get(userCtrl.get);
-    router.route('/user/:id/1').put(userCtrl.updateLoss);
-    router.route('/user/:id/2').put(userCtrl.updateWins);
+    router.route('/user/:id/loss').put(userCtrl.updateLoss);
+    router.route('/user/:id/win').put(userCtrl.updateWins);
     router.route('/user/:id').put(userCtrl.update);
     router.route('/user/:id').delete(userCtrl.delete);
     // Apply the routes to our application with the prefix /api
