@@ -18,6 +18,6 @@
   <source src="{{song}}" type="audio/mpeg">
 </audio>
 
-<button  *ngIf="!playing"(click)=playMusic()>Play Music</button>
-<button  *ngIf="playing" (click)=stopMusic()>Stop Music</button>
+<button  class ="playingMusic" *ngIf="!playing"(click)=playMusic()>Play Music</button>
+<button  class = "notPlayingMusic" *ngIf="playing" (click)=stopMusic()>Stop Music</button>
 

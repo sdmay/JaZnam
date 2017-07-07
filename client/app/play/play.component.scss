@@ -6,4 +6,16 @@
   font-family: 'Gravitas One', cursive;
   color: red;
 }
-[hidden]:not([broken]) { display: none !important;}
+
+@media only screen and (max-width: 768px) {
+  .playingMusic {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .notPlayingMusic {
+    display: none;
+  }
+}
+
