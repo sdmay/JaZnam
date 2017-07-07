@@ -32,7 +32,7 @@ dispose;
   };
   isLoading = true;
 
-  constructor(public auth: AuthService,
+  constructor(private auth: AuthService,
               public toast: ToastComponent,
               private playService: PlayService,
               private userService: UserService)  { }
@@ -91,7 +91,7 @@ dispose;
         res => this.toast.setMessage('account settings saved!', 'success'),
         error => console.log(error)
       );
-    this.getUser();
+    // this.getUser();
     this.playGame();
   }
   wonGame(user) {
@@ -103,7 +103,7 @@ dispose;
         error => console.log(error)
       );
       this.sub.unsubscribe();
-      this.getUser();
+      // this.getUser();
       this.playGame();
     }
   }

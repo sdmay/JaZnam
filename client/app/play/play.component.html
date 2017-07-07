@@ -1,5 +1,8 @@
 
 <!--{{user.username}} {{user.wins}} {{user.losses}}-->
+<div *ngIf="user">{{user.username}} {{user.wins}} {{user.losses}}</div>
+
+
 <div *ngIf="words">
  <h2 class="word">{{words.word}}</h2>
 </div>
@@ -12,10 +15,7 @@
 {{ticks}}
 
 <audio autoplay loop="loop" *ngIf="this.playing">
-
-  <!--<source src="http://www.samisite.com/sound/cropShadesofGrayMonkees.mp3" type="audio/mpeg">-->
   <source src="{{song}}" type="audio/mpeg">
-
 </audio>
 
 <button  *ngIf="!playing"(click)=playMusic()>Play Music</button>
