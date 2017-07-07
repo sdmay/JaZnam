@@ -21,3 +21,8 @@
 <button  class ="playingMusic" *ngIf="!playing"(click)=playMusic()>Play Music</button>
 <button  class = "notPlayingMusic" *ngIf="playing" (click)=stopMusic()>Stop Music</button>
 
+<ul *ngFor="let missedWord of missedWords">
+  <li>{{missedWord}}</li>
+</ul>
+
+

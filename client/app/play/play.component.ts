@@ -14,6 +14,7 @@ export class PlayComponent implements OnInit {
   // let song = '../assets/direstraits';
   user = {};
   song = 'assets/direstraits.mp3';
+  missedWords = [];
   y;
   x;
   z;
@@ -71,13 +72,16 @@ dispose;
   }
   checkWord(check: HTMLInputElement) {
     this.z = check.value.toLowerCase();
-    this.guess = this.z;
     if (this.z === '') {
       return;
     }
     if (this.z !== this.a) {
+      console.log(this.z);
+      this.missedWords.push(check.value);
+      console.log(this.missedWords)
       alert('guess again');
     } else {
+      this.missedWords = [];
       alert('oh yeah!');
       this.wonGame(this.auth.currentUser);
 
@@ -115,11 +119,9 @@ dispose;
     }
   }
   playMusic(): any {
-    console.log('Play');
     this.playing = true;
   }
   stopMusic(): any {
-    console.log('Stop');
     this.playing = false;
   }
 }
