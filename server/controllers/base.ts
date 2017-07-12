@@ -57,21 +57,19 @@ abstract class BaseCtrl {
   update = (req, res) => {
     this.model.findOneAndUpdate({ _id: req.params.id }, req.body, (err) => {
       if (err) { return console.error(err); }
-      console.log(res);
       res.sendStatus(200);
     });
   };
 
   updateLoss = (req, res) => {
-    console.log(req.params.id);
+
     this.model.findOneAndUpdate({ _id: req.params.id }, { $inc: { losses: 1 }}, (err) => {
       if (err) { return console.error(err); }
       res.sendStatus(200);
     });
   };
   updateWins = (req, res) => {
-    console.log(req.params._id);
-    this.model.findOneAndUpdate({ _id: req.params.id }, { $inc: { wins: 1}}, (err) => {
+    this.model.findOneAndUpdate({ _id: req.params.id }, { $inc: { wins: 1 }}, (err) => {
       if (err) { return console.error(err); }
       res.sendStatus(200);
     });

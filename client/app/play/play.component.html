@@ -1,11 +1,12 @@
 
-<!--{{user.username}} {{user.wins}} {{user.losses}}-->
-<div *ngIf="user">{{user.username}} {{user.wins}} {{user.losses}}</div>
-
-
+<!--{{auth.currentUser.name}} {{user.wins}} {{user.losses}}-->
+<!--<div *ngIf="user">{{auth.currentUser.username}} {{auth.currentUser.wins}} {{auth.currentUser.losses}}</div>-->
+{{user.username}} {{user.wins}} {{user.losses}}
 <div *ngIf="words">
  <h2 class="word">{{words.word}}</h2>
 </div>
+
+
 
 <div>
   <input class="checkword" #check placeholder="Enter Your Guess!" (keyup.enter)="checkWord(check)">
@@ -25,4 +26,8 @@
   <li>{{missedWord}}</li>
 </ul>
 
+<div *ngIf="youWon">You won <button (click)="playGame()">Play Again</button></div>
+
+<div *ngIf="youLost">You Lost <button (click)="playGame()">Play Again</button></div>
+<div *ngIf="guessAgain">Guess Again!</div>
 

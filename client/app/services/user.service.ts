@@ -40,12 +40,10 @@ export class UserService {
     return this.http.put(`/api/user/${user._id}`, JSON.stringify(user), this.options);
   }
 updateLoss(user): Observable<any> {
-    console.log(user._id);
-    return this.http.put(`/api/user/${user._id}/loss`, JSON.stringify(user), this.options);
+    return this.http.put(`/api/user/loss/${user._id}`, JSON.stringify(user), this.options);
 }
   updateWins(user): Observable<any> {
-    console.log(user._id)
-    return this.http.put(`/api/user/${user._id}/win`, JSON.stringify(user), this.options);
+    return this.http.put(`/api/user/win/${user._id}`, JSON.stringify(user), this.options);
   }
   deleteUser(user): Observable<any> {
     return this.http.delete(`/api/user/${user._id}`, this.options);

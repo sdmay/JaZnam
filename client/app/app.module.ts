@@ -18,6 +18,9 @@ import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PlayComponent } from './play/play.component';
 import {PlayService} from './services/play.service';
+import { ModalModule } from 'angular2-modal';
+import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import {PlayService} from './services/play.service';
   ],
   imports: [
     RoutingModule,
-    SharedModule
+    SharedModule,
+    ModalModule.forRoot(),
+    BootstrapModalModule
   ],
   providers: [
     AuthService,
@@ -42,7 +47,7 @@ import {PlayService} from './services/play.service';
     AuthGuardAdmin,
     CatService,
     UserService,
-    PlayService
+    PlayService,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
