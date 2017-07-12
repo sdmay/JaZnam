@@ -92,7 +92,6 @@ dispose;
     }
     if (this.z !== this.a) {
       console.log(this.z);
-      console.log(this.a + 'polio vaccine')
       this.missedWords.push(this.z);
       console.log(this.missedWords);
       this.guessAgain = true;
@@ -111,7 +110,6 @@ dispose;
   lostGame(user) {
     console.log('you lose ' + this.a);
     console.log(user);
-    this.guessAgain = false;
     this.youWon = false;
     this.youLost = true;
     this.userService.updateLoss(user).subscribe(
