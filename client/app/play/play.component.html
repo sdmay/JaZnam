@@ -1,18 +1,23 @@
 
 <!--{{auth.currentUser.name}} {{user.wins}} {{user.losses}}-->
 <!--<div *ngIf="user">{{auth.currentUser.username}} {{auth.currentUser.wins}} {{auth.currentUser.losses}}</div>-->
-<ul class="list-group">
-  <li class="list-group-item list-group-item">Hello! {{user.username}}</li>
-  <li class="list-group-item list-group-item-success">Wins: {{user.wins}}</li>
-  <li class="list-group-item list-group-item-danger">Losses: {{user.losses}}</li>
+<ul class="list-group" *ngIf="!user">
+</ul>
+<ul class="list-group" *ngIf="user">
+  <li class="list-group-item list-group-item">Hello! {{user?.username}}</li>
+  <li class="list-group-item list-group-item-success">Wins: {{user?.wins}}</li>
+  <li class="list-group-item list-group-item-danger">Losses: {{user?.losses}}</li>
 
 </ul>
+<div *ngIf="!words" class="guessworddiv">
+  <h2 class="wordToGuess">Word to guess...</h2>
+  <h2 class="word"></h2>
+</div>
 
 <div *ngIf="words" class="guessworddiv">
   <h2 class="wordToGuess">Word to guess...</h2>
- <h2 class="word">{{words.word}}</h2>
+ <h2 class="word">{{words?.word}}</h2>
 </div>
-
 
 
 <div>
