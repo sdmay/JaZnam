@@ -4,18 +4,47 @@
 
 .word {
   font-family: 'Gravitas One', cursive;
-  color: red;
+  color: deeppink;
 }
 
 @media only screen and (max-width: 768px) {
   .playingMusic {
-    display: none;
   }
 }
-
 @media only screen and (max-width: 768px) {
   .notPlayingMusic {
     display: none;
   }
 }
+.musicButton {
+padding-bottom: 20px;}
+.checkword {
+  border: solid 3px lightgray;
+  border-radius: 7px;
+}
+.guess {
+  border: solid 2px;
+  padding:20px;
+  background-color: #dff0d8;
+  border-radius: 12px;
+margin-left: 15px;}
 
+.ticks {
+  color: black;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.counter {
+  font-size: 40px;
+
+}
+
+.message {
+  color: black;
+  font-size: 20px;
+}
+
+.buttonQuestion {
+margin-left: 20px;
+}

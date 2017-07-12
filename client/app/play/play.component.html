@@ -1,9 +1,15 @@
 
 <!--{{auth.currentUser.name}} {{user.wins}} {{user.losses}}-->
 <!--<div *ngIf="user">{{auth.currentUser.username}} {{auth.currentUser.wins}} {{auth.currentUser.losses}}</div>-->
-{{user.username}} {{user.wins}} {{user.losses}}
+<ul class="list-group">
+  <li class="list-group-item list-group-item">Hello! {{user.username}}</li>
+  <li class="list-group-item list-group-item-success">Wins: {{user.wins}}</li>
+  <li class="list-group-item list-group-item-danger">Losses: {{user.losses}}</li>
+
+</ul>
+
 <div *ngIf="words">
- <h2>{{words.word}}</h2>
+ <h2 class="word">{{words.word}}</h2>
 </div>
 
 
@@ -13,22 +19,24 @@
   <button class="guess" (click)="checkWord(check)">Guess!</button>
 </div>
 
-{{ticks}}
+<div class="ticks">Time Remaining: <span class="counter">{{ticks}}</span></div>
 
 <audio autoplay loop="loop" *ngIf="this.playing">
   <source src="{{song}}" type="audio/mpeg">
 </audio>
 
-<button  class ="playingMusic" *ngIf="!playing"(click)=playMusic()>Play Music</button>
-<button  class = "notPlayingMusic" *ngIf="playing" (click)=stopMusic()>Stop Music</button>
+<div class="musicButton">
+<button  class ="btn btn-outline-success playingMusic" *ngIf="!playing"(click)=playMusic()>Play Music</button>
+<button  class = "btn btn-outline-danger notPlayingMusic" *ngIf="playing" (click)=stopMusic()>Stop Music</button>
+</div>
 
-<ul *ngFor="let missedWord of missedWords">
-  <li>{{missedWord}}</li>
+<ul *ngFor="let missedWord of missedWords" class="list-group">
+  <li class="list-group-item list-group-item-danger">Wrong! {{missedWord}}</li>
 </ul>
 
 
-<div *ngIf="youWon">You won {{a}}<button (click)="playGame()">Play Again</button></div>
-<div *ngIf="youLost">You Lost {{a}}<button (click)="playGame()">Play Again</button></div>
+<div *ngIf="youWon" class="message">Great job you won!  {{a}}<button (click)="playGame()" class="btn btn-success buttonQuestion">Play Again</button></div>
+<div *ngIf="youLost" class="message">You Lost! The correct word is {{a}} <button (click)="playGame()" class="btn btn-success buttonQuestion">Play Again</button></div>
 
-<div *ngIf="guessAgain">Guess Again!</div>
+<div *ngIf="guessAgain" class="message">Guess Again!</div>
 
