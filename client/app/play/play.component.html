@@ -26,8 +26,8 @@
   <li>{{missedWord}}</li>
 </ul>
 
-<div *ngIf="youWon">You won <button (click)="playGame()">Play Again</button></div>
+<div *ngIf="youWon">You won {{a}}<button (click)="playGame()">Play Again</button></div>
 
-<div *ngIf="youLost">You Lost <button (click)="playGame()">Play Again</button></div>
+<div *ngIf="youLost">You Lost {{a}}<button (click)="playGame()">Play Again</button></div>
 <div *ngIf="guessAgain">Guess Again!</div>
 
