@@ -3,7 +3,7 @@
 <!--<div *ngIf="user">{{auth.currentUser.username}} {{auth.currentUser.wins}} {{auth.currentUser.losses}}</div>-->
 {{user.username}} {{user.wins}} {{user.losses}}
 <div *ngIf="words">
- <h2 class="word">{{words.word}}</h2>
+ <h2>{{words.word}}</h2>
 </div>
 
 
@@ -27,7 +27,6 @@
 </ul>
 
 <div *ngIf="youWon">You won {{a}}<button (click)="playGame()">Play Again</button></div>
-
 <div *ngIf="youLost">You Lost {{a}}<button (click)="playGame()">Play Again</button></div>
 <div *ngIf="guessAgain">Guess Again!</div>
 
