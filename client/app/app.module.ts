@@ -20,6 +20,7 @@ import { PlayComponent } from './play/play.component';
 import {PlayService} from './services/play.service';
 import { ModalModule } from 'angular2-modal';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
+import { PlayreversePipe } from './play/playreverse.pipe';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
     AccountComponent,
     AdminComponent,
     NotFoundComponent,
-    PlayComponent
+    PlayComponent,
+    PlayreversePipe
   ],
   imports: [
     RoutingModule,

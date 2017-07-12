@@ -8,15 +8,16 @@
 
 </ul>
 
-<div *ngIf="words">
+<div *ngIf="words" class="guessworddiv">
+  <h2 class="wordToGuess">Word to guess...</h2>
  <h2 class="word">{{words.word}}</h2>
 </div>
 
 
 
 <div>
-  <input class="checkword" #check placeholder="Enter Your Guess!" (keyup.enter)="checkWord(check)">
-  <button class="guess" (click)="checkWord(check)">Guess!</button>
+  <input class="checkword" maxlength="55" #check placeholder="Enter Your Guess!" (keyup.enter)="checkWord(check)">
+  <button class="btn btn-success guess" (click)="checkWord(check)">Guess!</button>
 </div>
 
 <div class="ticks">Time Remaining: <span class="counter">{{ticks}}</span></div>
@@ -29,8 +30,8 @@
 <button  class ="btn btn-outline-success playingMusic" *ngIf="!playing"(click)=playMusic()>Play Music</button>
 <button  class = "btn btn-outline-danger notPlayingMusic" *ngIf="playing" (click)=stopMusic()>Stop Music</button>
 </div>
-
-<ul *ngFor="let missedWord of missedWords" class="list-group">
+<div *ngIf="guessAgain" class="message">Guess Again!</div>
+<ul *ngFor="let missedWord of missedWords | playreverse" class="list-group">
   <li class="list-group-item list-group-item-danger">Wrong! {{missedWord}}</li>
 </ul>
 
@@ -38,5 +39,5 @@
 <div *ngIf="youWon" class="message">Great job you won!  {{a}}<button (click)="playGame()" class="btn btn-success buttonQuestion">Play Again</button></div>
 <div *ngIf="youLost" class="message">You Lost! The correct word is {{a}} <button (click)="playGame()" class="btn btn-success buttonQuestion">Play Again</button></div>
 
-<div *ngIf="guessAgain" class="message">Guess Again!</div>
+
 

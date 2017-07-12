@@ -4,7 +4,7 @@
 
 .word {
   font-family: 'Gravitas One', cursive;
-  color: deeppink;
+  color: darkslateblue;
 }
 
 @media only screen and (max-width: 768px) {
@@ -21,11 +21,11 @@ padding-bottom: 20px;}
 .checkword {
   border: solid 3px lightgray;
   border-radius: 7px;
-}
+width:300px;}
 .guess {
   border: solid 2px;
   padding:20px;
-  background-color: #dff0d8;
+
   border-radius: 12px;
 margin-left: 15px;}
 
@@ -47,4 +47,8 @@ margin-left: 15px;}
 
 .buttonQuestion {
 margin-left: 20px;
+}
+.guessworddiv {
+padding-top: 25px;
+padding-bottom: 25px;
 }

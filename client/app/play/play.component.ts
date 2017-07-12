@@ -4,7 +4,7 @@ import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
 import { PlayService } from '../services/play.service'
 import {Observable} from 'rxjs/Rx';
-
+import { PlayreversePipe } from './playreverse.pipe'
 import { Overlay } from 'angular2-modal';
 import { Modal } from 'angular2-modal/plugins/bootstrap';
 
@@ -110,6 +110,7 @@ dispose;
   lostGame(user) {
     console.log('you lose ' + this.a);
     console.log(user);
+    this.guessAgain = false;
     this.youWon = false;
     this.youLost = true;
     this.userService.updateLoss(user).subscribe(
