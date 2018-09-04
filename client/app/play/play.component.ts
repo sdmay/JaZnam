@@ -77,9 +77,10 @@ dispose;
         console.log(this.a);
         this.b = this.x.word.toLowerCase().split('').sort(function () {return 0.5 - Math.random()
         }).join('-');
-        this.words = {
-          word: this.b
-        };
+        console.log(this.b);
+        // this.words = {
+        //   word: this.b
+        // };
       },
       error => console.log(error),
       () => this.isLoading = false

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-about',
@@ -9,5 +10,8 @@ import { AuthService } from '../services/auth.service';
 export class AboutComponent {
 
   constructor(public auth: AuthService) { }
+  printAll<T>(args: T[]) {
+    args.forEach((element) => console.log(element));
+  }
 
 }
